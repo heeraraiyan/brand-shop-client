@@ -8,7 +8,7 @@ import Footer from "../sections/Footer";
 const Home = () => {
     const brands = useLoaderData();
     return (
-        <div>
+        <div className="bg-slate-600">
            <Navbar></Navbar>
            <Banner></Banner>
 

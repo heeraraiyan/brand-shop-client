@@ -1,19 +1,44 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const Navbar = () => {
 
+    const { user ,logOut } =useContext(AuthContext);
+  console.log(user)
+ 
+  const handleLogOut = () =>{
+    logOut()
+    .then(()=>console.log('user logged'))
+    .catch(error => console.error(error))
+  }
+
+
     const navLinks =<>
-    <li className="mr-4"><NavLink to='/'>Home</NavLink>
+    <li className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-orange-600 underline" : ""
+                }><NavLink to='/'>Home</NavLink>
     </li>
-    <li className="mr-4"><NavLink to='/addProduct'>Add Product</NavLink>
+    <li className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-orange-600 underline" : ""
+                }><NavLink to='/addProduct'>Add Product</NavLink>
     </li>
-    <li className="mr-4 btn-error rounded-md"><NavLink to='/myCart'>My Cart</NavLink>
+    <li className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-orange-600 underline" : ""
+                }><NavLink to='/myCart'>My Cart</NavLink>
 
     </li>
-    <li className="mr-4 btn-error rounded-md"><NavLink to='/register'>Register</NavLink>
+    <li className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-orange-600 underline" : ""
+                }><NavLink to='/register'>Register</NavLink>
     
     </li>
+    {/* <li className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-orange-600 underline" : ""
+                }><NavLink to='/login'>Login</NavLink>
+    
+    </li> */}
     </>
 
 
@@ -37,7 +62,18 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn mr-4">Button</a>
+    {/* <a className="btn mr-4">Button</a> */}
+    {
+            user? <>
+            <span>{user.email}</span>
+            <a onClick={handleLogOut} className="btn">sign out</a>
+            
+            
+            </>
+            : <Link to='/login'>
+              <button className="btn-error px-4 py-2 rounded-full">Login</button>
+            </Link>
+          }
   </div>
 </div>
             
