@@ -8,6 +8,10 @@ import {
 } from "react-router-dom";
 import Root from './pages/Root.jsx';
 import Home from './pages/Home.jsx';
+import AddProduct from './pages/AddProduct';
+import MyCart from './pages/MyCart';
+import Register from './pages/Register';
+import Login from './pages/Login';
 
 
 const router = createBrowserRouter([
@@ -17,8 +21,27 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader: () => fetch ('brands.json')
+      
+      },
+      {
+        path : '/addProduct',
+        element: <AddProduct></AddProduct>
+      },
+      {
+        path: '/myCart',
+        element:<MyCart></MyCart>
+      },
+      {
+        path:'/register',
+        element: <Register></Register>
+      },
+      {
+        path: '/login',
+        element:<Login></Login>
       }
+
     ]
   },
 ]);
