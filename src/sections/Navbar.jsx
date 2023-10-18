@@ -66,7 +66,7 @@ const Navbar = () => {
     {
             user? <>
             <span>{user.email}</span>
-            <a onClick={handleLogOut} className="btn">sign out</a>
+            <a onClick={handleLogOut} className="btn btn-error rounded-full">sign out</a>
             
             
             </>

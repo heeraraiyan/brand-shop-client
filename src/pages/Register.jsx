@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import Navbar from "../sections/Navbar";
 import { AuthContext } from "../provider/AuthProvider";
@@ -9,7 +9,10 @@ import { AuthContext } from "../provider/AuthProvider";
 const Register = () => {
 
     const {createUSer } = useContext(AuthContext);
+    const navigate = useNavigate();
 
+    const [registerSuccess,setRegisterSuccess] = useState('');
+     const [registerError,setRegisterError] =useState('');
 
     const handleRegister = e => {
         e.preventDefault();
@@ -20,12 +23,34 @@ const Register = () => {
         const password = form.get('password');
         console.log(name, email, password);
 
-        createUSer(email, password)
+        setRegisterSuccess('');
+        setRegisterError('');
+
+        if(password.length < 6){
+            setRegisterError('password should be 6 character or longer');
+            return;
+        }
+        else if(!/[A-Z]/.test(password)){
+            setRegisterError('your password should have at least one uppercase characters');
+            return;
+        }
+
+        else if (!/[a-zA-Z0-9]*[!#$%&?][a-zA-Z0-9]*/.test(password)) {
+            setRegisterError('Your password should have at least one special character (!, #, $, %, &, or ?)');
+            return;
+        }
+       
+
+        createUSer(email, password,name)
         .then(result => {
           console.log(result.user);
+          setRegisterSuccess('user created successfully')
+          e.target.reset();
+          navigate('/');
         })
         .catch(error => {
-        console.error(error)
+        console.error(error);
+        setRegisterError(error.message);
       })
     }    
     return (
@@ -63,6 +88,13 @@ const Register = () => {
           <button className="btn btn-primary">Register</button>
         </div>
     </form>
+    {
+        registerError && <p className="text-red-700">{registerError}</p>
+    }
+
+    {
+        registerSuccess && <p className="text-green-600">{registerSuccess}</p>
+    }
         <p>Already have an account? please <Link className="text-white text-3xl" to="/Login">Login</Link></p>
     </div>
   </div>

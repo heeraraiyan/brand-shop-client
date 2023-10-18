@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import Navbar from "../sections/Navbar";
 import { AuthContext } from "../provider/AuthProvider";
@@ -11,6 +11,8 @@ const Login = () => {
     const { signIn , signInWithGoogle} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+
+    const [loginError, setLoginError] = useState('');
     // console.log(user)
 
     const handleLogin = e => {
@@ -21,6 +23,7 @@ const Login = () => {
         const password = form.get('password');
 
         console.log(email,password)
+        setLoginError('');
         
         signIn(email, password)
         .then(result=>{
@@ -30,6 +33,7 @@ const Login = () => {
         })
           .catch(error => {
           console.error(error);
+          setLoginError("Email and password do not match. Please try again.");
         })
     }
 
@@ -72,6 +76,10 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
     </form>
+
+    {loginError && (
+              <p className="text-red-700 text-center mt-4">{loginError}</p>
+            )}
          <p>Dont have an account? please <Link className="text-white text-3xl" to="/Register">Register</Link></p> .
          <p>Log in with  <button onClick={handleGoogle} className="btn-error px-2 py-1">Google</button></p>          
     </div>
