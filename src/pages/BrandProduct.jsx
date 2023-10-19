@@ -43,10 +43,10 @@ return (
 </div>
                 </div>
 
-        <div className="w-11/12 mx-auto grid grid-cols-3">
+        <div className="w-11/12 mx-auto grid grid-cols-3 pb-10">
             {products.map((product) => (
-                <div key={product._id} className="card card-compact w-96 bg-sky-200 shadow-xl">
-                    <figure><img src={product.image} alt={product.name} /></figure>
+                <div key={product._id} className="card card-compact w-96 bg-sky-200 shadow-xl mt-8 gap-4 ">
+                    <figure><img className="h-[250px]" src={product.image} alt={product.name} /></figure>
                     <div className="card-body">
                         <h2 className="card-title text-orange-800">{product.brand_name}</h2>
                         <p className="text-xl">Name: {product.name}</p>

@@ -46,7 +46,8 @@ const Navbar = () => {
         {navLinks}
       </ul>
     </div>
-    <a className=" text-4xl  italic text-amber-600">FASHION <span className="text-gray-700">4</span> <span className="text-xl text-red-600">TOMORROW</span></a>
+    <img className="w-12 h-12" src="https://i.ibb.co/TW1ctsb/Open-Doodles-Selfie.png" alt="" />
+    <a className=" text-4xl  italic text-amber-600 font-bold">FASHION <span className="text-gray-700">4</span> <span className="text-xl text-red-600">TOMORROW</span></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
