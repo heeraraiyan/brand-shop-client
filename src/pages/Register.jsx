@@ -54,14 +54,14 @@ const Register = () => {
       })
     }    
     return (
-        <div>
+        <div className="bg-slate-600">
             <Navbar></Navbar>
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen ">
   <div className="hero-content flex-col ">
     <div className="text-center">
-      <h1 className="text-5xl font-bold">Register now!</h1>
+      <h1 className="text-5xl font-bold text-amber-600 italic">Register now!</h1>
     </div>
-    <div className=" flex-shrink-0 w-full max-w-sm shadow-2xl  bg-sky-500">
+    <div className=" flex-shrink-0 w-full max-w-sm shadow-2xl   bg-cyan-600 px-10 py-10">
       <form onSubmit={handleRegister} className="card-body">
         <div className="form-control">
           <label className="label">
@@ -95,7 +95,7 @@ const Register = () => {
     {
         registerSuccess && <p className="text-green-600">{registerSuccess}</p>
     }
-        <p>Already have an account? please <Link className="text-white text-3xl" to="/Login">Login</Link></p>
+        <p className="">Already have an account? please <Link className="text-white bg-blue-500 px-2 py-1 text-3xl rounded-lg" to="/Login">Login</Link></p>
     </div>
   </div>
 </div>

@@ -23,9 +23,13 @@ const Navbar = () => {
     <li><NavLink to='/myCart'>My Cart</NavLink>
 
     </li>
+    <li><NavLink to='/about'>About Us</NavLink>
+    
+    </li>
     <li><NavLink to='/register'>Register</NavLink>
     
     </li>
+
     {/* <li className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-orange-600 underline" : ""
                 }><NavLink to='/login'>Login</NavLink>
