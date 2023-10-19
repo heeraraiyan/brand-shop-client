@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const BrandCard = ({brand}) => {
@@ -5,7 +6,8 @@ const BrandCard = ({brand}) => {
     return (
         <div>
 
-<div className="card w-full h-72 bg-sky-100 shadow-sm">
+       <Link to={`/brandProduct/${brand_name}`}>
+       <div className="card w-full h-72 bg-sky-100 shadow-sm">
   <figure><img src={img} alt="clothes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{brand_name}</h2>
@@ -13,6 +15,9 @@ const BrandCard = ({brand}) => {
 
   </div>
 </div>
+       
+       
+       </Link>
             
         </div>
     );
