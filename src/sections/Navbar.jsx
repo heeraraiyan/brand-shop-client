@@ -16,22 +16,14 @@ const Navbar = () => {
 
 
     const navLinks =<>
-    <li className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-orange-600 underline" : ""
-                }><NavLink to='/'>Home</NavLink>
+    <li><NavLink to='/'>Home</NavLink>
     </li>
-    <li className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-orange-600 underline" : ""
-                }><NavLink to='/addProduct'>Add Product</NavLink>
+    <li ><NavLink to='/addProduct'>Add Product</NavLink>
     </li>
-    <li className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-orange-600 underline" : ""
-                }><NavLink to='/myCart'>My Cart</NavLink>
+    <li><NavLink to='/myCart'>My Cart</NavLink>
 
     </li>
-    <li className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-orange-600 underline" : ""
-                }><NavLink to='/register'>Register</NavLink>
+    <li><NavLink to='/register'>Register</NavLink>
     
     </li>
     {/* <li className={({ isActive, isPending }) =>
