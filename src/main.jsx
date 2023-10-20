@@ -16,12 +16,15 @@ import AuthProvider from './provider/AuthProvider';
 import PrivateRoute from './pages/PrivateRoute';
 import BrandProduct from './pages/BrandProduct';
 import About from './pages/About';
+import UpdateProduct from './pages/UpdateProduct';
+import ErrorPage from './pages/ErrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<Root></Root> ,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -48,12 +51,17 @@ const router = createBrowserRouter([
       {
         path:'/brandProduct/:brandName',
         element: <BrandProduct></BrandProduct>,
-        loader: ({params}) =>fetch(`http://localhost:5000/products/${params.brandName}`)
+        loader: ({params}) =>fetch(`http://localhost:5000/products_Brand/${params.brandName}`)
       },
 
       {
         path:'/about',
         element: <About></About>
+      },
+      {
+        path:'/updateProduct/:id',
+        element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
       }
 
     ]

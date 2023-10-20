@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../sections/Navbar";
 
 const BrandProduct = () => {
@@ -57,7 +57,7 @@ return (
                         </div>
                         <p>Rating: {product.rating}</p>
                         <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Update</button>
+                            <Link to={`/updateProduct/${product._id}`}><button className="btn btn-primary">Update</button></Link>
                             <button className="btn btn-primary">Details</button>
                         </div>
                     </div>
