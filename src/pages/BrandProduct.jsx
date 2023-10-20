@@ -58,7 +58,7 @@ return (
                         <p>Rating: {product.rating}</p>
                         <div className="card-actions justify-end">
                             <Link to={`/updateProduct/${product._id}`}><button className="btn btn-primary">Update</button></Link>
-                            <button className="btn btn-primary">Details</button>
+                            <Link to={`/details/${product._id}`}><button className="btn btn-primary">Details</button></Link>
                         </div>
                     </div>
                 </div>
