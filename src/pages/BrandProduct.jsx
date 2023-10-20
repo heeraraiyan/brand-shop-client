@@ -43,27 +43,33 @@ return (
 </div>
                 </div>
 
-        <div className="w-11/12 mx-auto grid grid-cols-3 pb-10">
-            {products.map((product) => (
-                <div key={product._id} className="card card-compact w-96 bg-sky-200 shadow-xl mt-8 gap-4 ">
-                    <figure><img className="h-[250px]" src={product.image} alt={product.name} /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title text-orange-800">{product.brand_name}</h2>
-                        <p className="text-xl">Name: {product.name}</p>
-                        <p>Description: {product.description}</p>
-                        <div className="flex">
-                            <p>Type: {product.type}</p>
-                            <p>Price: {product.price}</p>
+                <div className="w-11/12 mx-auto grid grid-cols-3 pb-10">
+                {products.length > 0 ? (
+                    products.map((product) => (
+                        <div key={product._id} className="card card-compact w-96 bg-sky-200 shadow-xl mt-8 gap-4">
+                            <figure><img className="h-[250px]" src={product.image} alt={product.name} /></figure>
+                            <div className="card-body">
+                                <h2 className="card-title text-orange-800">{product.brand_name}</h2>
+                                <p className="text-xl">Name: {product.name}</p>
+                                <p>Description: {product.description}</p>
+                                <div className="flex">
+                                    <p>Type: {product.type}</p>
+                                    <p>Price: {product.price}</p>
+                                </div>
+                                <p>Rating: {product.rating}</p>
+                                <div className="card-actions justify-end">
+                                    <Link to={`/updateProduct/${product._id}`}><button className="btn btn-primary">Update</button></Link>
+                                    <Link to={`/details/${product._id}`}><button className="btn btn-primary">Details</button></Link>
+                                </div>
+                            </div>
                         </div>
-                        <p>Rating: {product.rating}</p>
-                        <div className="card-actions justify-end">
-                            <Link to={`/updateProduct/${product._id}`}><button className="btn btn-primary">Update</button></Link>
-                            <Link to={`/details/${product._id}`}><button className="btn btn-primary">Details</button></Link>
-                        </div>
+                    ))
+                ) : (
+                    <div className="no-products-message">
+                        <p className="text-5xl text-amber-600 ">No products available for this brand..........</p>
                     </div>
-                </div>
-            ))}
-        </div>
+                )}
+            </div>
     </div>
 );
 };
