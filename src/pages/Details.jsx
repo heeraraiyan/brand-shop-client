@@ -14,7 +14,7 @@ const Details = () => {
         console.log(userCart)
 
         
-    fetch('http://localhost:5000/cart',{
+    fetch('https://fashion-and-apparel-server-iota.vercel.app/cart',{
         method: 'POST',
         headers:{
           'content-type' :'application/json'

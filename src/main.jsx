@@ -19,6 +19,7 @@ import About from './pages/About';
 import UpdateProduct from './pages/UpdateProduct';
 import ErrorPage from './pages/ErrorPage';
 import Details from './pages/Details';
+import Contact from './pages/Contact';
 
 
 const router = createBrowserRouter([
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: '/myCart',
         element:<PrivateRoute><MyCart></MyCart></PrivateRoute>,
-        loader: () =>fetch('http://localhost:5000/cart')
+        loader: () =>fetch('https://fashion-and-apparel-server-iota.vercel.app/cart')
       },
       {
         path:'/register',
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
       {
         path:'/brandProduct/:brandName',
         element: <BrandProduct></BrandProduct>,
-        loader: ({params}) =>fetch(`http://localhost:5000/products_Brand/${params.brandName}`)
+        loader: ({params}) =>fetch(`https://fashion-and-apparel-server-iota.vercel.app/products_Brand/${params.brandName}`)
       },
 
       {
@@ -63,12 +64,16 @@ const router = createBrowserRouter([
       {
         path:'/updateProduct/:id',
         element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+        loader: ({params}) => fetch(`https://fashion-and-apparel-server-iota.vercel.app/products/${params.id}`)
       },
       {
         path: '/details/:id',
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({params}) =>fetch(`http://localhost:5000/products/${params.id}`)
+        loader: ({params}) =>fetch(`https://fashion-and-apparel-server-iota.vercel.app/products/${params.id}`)
+      },
+      {
+        path:'/contact',
+        element: <Contact></Contact>
       }
 
     ]

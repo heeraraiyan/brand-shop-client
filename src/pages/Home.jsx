@@ -3,6 +3,7 @@ import Banner from "../sections/Banner";
 import Navbar from "../sections/Navbar";
 import BrandCard from "./BrandCard";
 import Footer from "../sections/Footer";
+import Contact from "./Contact";
 
 
 const Home = () => {
@@ -66,6 +67,7 @@ const Home = () => {
             </div>
         </section>
            </div>
+           <Contact></Contact>
            <Footer></Footer>
         </div>
     );

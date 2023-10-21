@@ -16,17 +16,18 @@ const Navbar = () => {
 
 
     const navLinks =<>
-    <li><NavLink to='/'>Home</NavLink>
+    <li className="font-bold text-fuchsia-800 text-md"><NavLink to='/'>Home</NavLink>
     </li>
-    <li ><NavLink to='/addProduct'>Add Product</NavLink>
+    <li className="font-bold text-fuchsia-800 text-md"><NavLink to='/addProduct'>Add Product</NavLink>
     </li>
-    <li><NavLink to='/myCart'>My Cart</NavLink>
+    <li className="font-bold text-fuchsia-800 text-md"><NavLink to='/myCart'>My Cart</NavLink>
 
     </li>
-    <li><NavLink to='/about'>About Us</NavLink>
+    <li className="font-bold text-fuchsia-800 text-md"><NavLink to='/about'>About Us</NavLink>
     
     </li>
-    <li><NavLink to='/register'>Register</NavLink>
+   
+    <li className="font-bold text-fuchsia-800 text-md"><NavLink to='/register'>Register</NavLink>
     
     </li>
 

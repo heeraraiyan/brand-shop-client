@@ -23,7 +23,7 @@ const AddProduct = () => {
 
     // send to server 
 
-    fetch('http://localhost:5000/products',{
+    fetch('https://fashion-and-apparel-server-iota.vercel.app/products',{
       method: 'POST',
       headers:{
         'content-type' :'application/json'

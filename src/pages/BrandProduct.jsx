@@ -3,6 +3,8 @@ import Navbar from "../sections/Navbar";
 
 const BrandProduct = () => {
     const products = useLoaderData();
+    console.log(products)
+   
 return (
     <div className="bg-slate-600">
         <Navbar></Navbar>
@@ -42,7 +44,6 @@ return (
   </div>
 </div>
                 </div>
-
                 <div className="w-11/12 mx-auto grid grid-cols-3 pb-10">
                 {products.length > 0 ? (
                     products.map((product) => (
